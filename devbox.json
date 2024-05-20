@@ -1,0 +1,18 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.10.7/.schema/devbox.schema.json",
+  "packages": [
+    "bat@0.24.0",
+    "go-task@3.37.0",
+    "kubectl@1.30.0",
+    "minikube@1.33.1",
+    "podman@5.0.3"
+  ],
+  "shell": {
+    "init_hook": [
+      "alias cat='bat --paging never --theme DarkNeon --style plain'",
+      "alias k='kubectl'",
+      "PS1=\"➜ \""
+    ],
+    "scripts":{}
+  }
+}

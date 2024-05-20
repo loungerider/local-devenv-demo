@@ -1,0 +1,44 @@
+version: "3"
+
+tasks:
+  devenv-init:
+    desc: create podman machine and minikube cluster
+    cmds:
+      - podman machine init
+      - podman machine start
+      - minikube start --driver=podman --container-runtime=containerd --profile devenv
+  
+  devenv-start:
+    desc: start minikube cluster
+    cmds:
+      - minikube start --driver=podman --container-runtime=containerd --profile devenv
+
+  devenv-stop:
+    desc: stop minikube cluster
+    cmds:
+      - minikube stop --profile devenv
+      
+  devenv-destroy:
+    desc: destroys all minikube clusters and the podman machine
+    deps: [devenv-stop]
+    cmds:
+      - minikube delete --all
+      - podman machine stop
+      - podman machine rm -f
+
+  devenv-status:
+    desc: check status of dev environment
+    cmds:
+      - podman system connection list
+      - podman machine list
+      - minikube status --profile devenv
+
+  devenv-hung:
+    desc: minikube not responding
+    cmds:
+      - podman machine rm -f
+      - minikube delete --all
+
+  default:
+    desc: check status of dev environment
+    deps: [devenv-status]
