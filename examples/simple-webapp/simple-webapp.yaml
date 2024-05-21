@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-webapp
+  labels:
+    app: myweb
+spec:
+  selector:
+    matchLabels:
+      app: myweb
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: myweb
+    spec:
+      containers:
+        - name: simple-webapp
+          image: simple-webapp
+          imagePullPolicy: Never
+          

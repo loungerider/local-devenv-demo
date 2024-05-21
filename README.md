@@ -15,3 +15,5 @@ task --list
 task devenv-init
 ```
 
+Using a single node minikube cluster because some examples would have issues when tunneling to the exposed service using the `minikube service <app_name> --profile devenv`
+

@@ -39,6 +39,12 @@ tasks:
       - podman machine rm -f
       - minikube delete --all
 
+  devenv-dashboard:
+    desc: start minikube dashboard
+    cmds:
+      - minikube --profile devenv addons enable metrics-server
+      - minikube dashboard --profile devenv
+
   default:
     desc: check status of dev environment
     deps: [devenv-status]
