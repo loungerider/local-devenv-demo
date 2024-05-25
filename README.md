@@ -8,12 +8,12 @@ The following command will install the nix package manager, download all the pac
 devbox shell
 ```
 
-This demo assumes that podman and minikube are not installed on your OS. go-task is used to abstract common commands.
+This demo assumes that podman and minikube are not installed on your OS. go-task is used to abstract common commands. A custom KUBECONFIG file will be generated and used for this demo.
 
 ```bash
 task --list
 task devenv-init
 ```
 
-Using a single node minikube cluster because some examples would have issues when tunneling to the exposed service using the `minikube service <app_name> --profile devenv`
+Using a single node minikube cluster because some examples would have issues when tunneling to the exposed service when executing `minikube service <app_name> --profile devenv`
 

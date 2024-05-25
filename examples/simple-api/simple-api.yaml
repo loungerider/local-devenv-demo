@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -20,3 +21,17 @@ spec:
         - name: simple-api
           image: simple-api
           imagePullPolicy: Never
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: simple-api
+  namespace: default
+spec:
+  selector:
+    app: myapi
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP

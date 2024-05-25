@@ -4,15 +4,18 @@
     "bat@0.24.0",
     "go@1.22.2",
     "go-task@3.37.0",
+    "jq@1.7.1",
     "kubectl@1.30.0",
     "kubernetes-helm@3.14.4",
     "minikube@1.33.1",
-    "podman@5.0.3"
+    "podman@5.0.3",
+    "yq@3.4.3"
   ],
   "shell": {
     "init_hook": [
       "alias cat='bat --paging never --theme DarkNeon --style plain'",
       "alias k='kubectl'",
+      "export KUBECONFIG=~/.kube/devenv-minikube-config",
       "PS1=\"➜ \""
     ],
     "scripts":{}

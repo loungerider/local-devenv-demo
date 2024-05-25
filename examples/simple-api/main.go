@@ -23,7 +23,7 @@ var albums = []album{
 
 func main() {
     router := gin.Default()
-    router.GET("/albums", getAlbums)
+    router.GET("/", getAlbums)
 
     router.Run("0.0.0.0:8080")
 }

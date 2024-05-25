@@ -4,23 +4,25 @@ tasks:
   devenv-init:
     desc: create podman machine and minikube cluster
     cmds:
+      - touch ~/.kube/devenv-minikube-config
+      - export KUBECONFIG=~/.kube/devenv-minikube-config
       - podman machine init
       - podman machine start
       - minikube start --driver=podman --container-runtime=containerd --profile devenv
   
-  devenv-start:
+  devenv-minikube-start:
     desc: start minikube cluster
     cmds:
       - minikube start --driver=podman --container-runtime=containerd --profile devenv
 
-  devenv-stop:
+  devenv-minikube-stop:
     desc: stop minikube cluster
     cmds:
       - minikube stop --profile devenv
       
   devenv-destroy:
     desc: destroys all minikube clusters and the podman machine
-    deps: [devenv-stop]
+    deps: [devenv-minikube-stop]
     cmds:
       - minikube delete --all
       - podman machine stop
@@ -42,7 +44,7 @@ tasks:
   devenv-dashboard:
     desc: start minikube dashboard
     cmds:
-      - minikube --profile devenv addons enable metrics-server
+      - minikube addons enable metrics-server --profile devenv
       - minikube dashboard --profile devenv
 
   default:

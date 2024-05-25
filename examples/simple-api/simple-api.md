@@ -1,5 +1,16 @@
 # Build a simple api with go
 
+## Prerequisites
+
+* devbox is installed and `devbox shell` was executed.
+* The minikube devenv cluster should be running locally.
+
+```bash
+task devenv-status
+```
+
+## Simple Api Example
+
 [Go API Reference Article](https://dev.to/envitab/how-to-build-an-api-using-go-ffk)
 [Go Dev Example](https://go.dev/doc/tutorial/web-service-gin)
 
@@ -16,7 +27,6 @@ Build and deploy with minikube
 ```bash
 minikube image build -t simple-api . --profile devenv
 kubectl create -f simple-api.yaml
-kubectl expose deployment simple-api --type=LoadBalancer --port=80 --target-port=8080
 minikube service simple-api --profile devenv
 ```
 

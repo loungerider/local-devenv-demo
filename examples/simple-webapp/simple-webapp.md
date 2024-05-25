@@ -1,5 +1,15 @@
 # Build image of nginx and use it with minikube
 
+## Prerequisite
+
+The minikube devenv cluster should be running locally
+
+```bash
+task devenv-status
+```
+
+## Simple Webapp Example
+
 Build a simple web app available to minikube, create a deployment, expose the service as type LoadBalancer and create a tunnel to browse the service.
 
 ```bash
