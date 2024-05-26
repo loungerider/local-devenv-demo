@@ -1,6 +1,12 @@
 # Create an ephemeral minikube local dev environment
 
 [Install devbox](https://www.jetify.com/devbox/docs/installing_devbox/)
+[Install vfkit if using macOS](https://github.com/NixOS/nixpkgs/issues/305868)
+
+```bash
+brew tap cfergeau/crc
+brew install vfkit
+```
 
 The following command will install the nix package manager, download all the packages listed in the `devbox.json` and place you in the devbox shell. The first execution will be time consuming because of the nix setup and package downloads.
 
@@ -16,4 +22,3 @@ task devenv-init
 ```
 
 Using a single node minikube cluster because some examples would have issues when tunneling to the exposed service when executing `minikube service <app_name> --profile devenv`
-
