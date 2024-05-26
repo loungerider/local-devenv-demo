@@ -1,6 +1,6 @@
 # Create an ephemeral minikube local dev environment
 
-[Install devbox](https://www.jetify.com/devbox/docs/installing_devbox/)
+[Install devbox](https://www.jetify.com/devbox/docs/installing_devbox/)\
 [Install vfkit if using macOS](https://github.com/NixOS/nixpkgs/issues/305868)
 
 ```bash

@@ -11,7 +11,7 @@ task devenv-status
 
 ## Simple Api Example
 
-[Go API Reference Article](https://dev.to/envitab/how-to-build-an-api-using-go-ffk)
+[Go API Reference Article](https://dev.to/envitab/how-to-build-an-api-using-go-ffk)\
 [Go Dev Example](https://go.dev/doc/tutorial/web-service-gin)
 
 Run api locally

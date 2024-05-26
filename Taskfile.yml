@@ -38,6 +38,7 @@ tasks:
   devenv-hung:
     desc: minikube not responding
     cmds:
+      - "[[ \"$(uname -s)\" == \"Darwin\" ]] && ps aux | grep podman | grep -v grep | awk '{print $2}' | xargs kill"
       - podman machine rm -f
       - minikube delete --all
 

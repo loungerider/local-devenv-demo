@@ -1,8 +1,9 @@
 # Build image of nginx and use it with minikube
 
-## Prerequisite
+## Prerequisites
 
-The minikube devenv cluster should be running locally
+* devbox is installed and `devbox shell` was executed.
+* The minikube devenv cluster should be running locally.
 
 ```bash
 task devenv-status
