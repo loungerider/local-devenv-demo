@@ -1,4 +1,4 @@
-# Create an ephemeral minikube local dev environment
+# Create an ephemeral minikube local dev environment with podman
 
 [Install devbox](https://www.jetify.com/devbox/docs/installing_devbox/)\
 [Install vfkit if using macOS](https://github.com/NixOS/nixpkgs/issues/305868)

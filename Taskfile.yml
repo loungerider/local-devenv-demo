@@ -9,6 +9,7 @@ tasks:
       - podman machine init
       - podman machine start
       - minikube start --driver=podman --container-runtime=containerd --profile devenv
+      - minikube addons enable ingress --profile devenv
   
   devenv-minikube-start:
     desc: start minikube cluster
@@ -27,6 +28,7 @@ tasks:
       - minikube delete --all
       - podman machine stop
       - podman machine rm -f
+      - rm ~/.kube/devenv-minikube-config
 
   devenv-status:
     desc: check status of dev environment
@@ -41,6 +43,7 @@ tasks:
       - "[[ \"$(uname -s)\" == \"Darwin\" ]] && ps aux | grep podman | grep -v grep | awk '{print $2}' | xargs kill"
       - podman machine rm -f
       - minikube delete --all
+      - rm ~/.kube/devenv-minikube-config
 
   devenv-dashboard:
     desc: start minikube dashboard

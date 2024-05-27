@@ -3,21 +3,53 @@ kind: Deployment
 metadata:
   name: simple-webapp
   labels:
-    app: myweb
+    app: simple-webapp
 spec:
   selector:
     matchLabels:
-      app: myweb
+      app: simple-webapp
   replicas: 1
   strategy:
     type: RollingUpdate
   template:
     metadata:
       labels:
-        app: myweb
+        app: simple-webapp
     spec:
       containers:
         - name: simple-webapp
           image: simple-webapp
           imagePullPolicy: Never
-          
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: simple-webapp
+  namespace: default
+spec:
+  selector:
+    app: simple-webapp
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-ingress
+  namespace: default
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: simple-webapp-127-0-0-1.nip.io
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: simple-webapp
+              port: 
+                number: 80
