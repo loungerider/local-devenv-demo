@@ -8,6 +8,7 @@ tasks:
       - export KUBECONFIG=~/.kube/devenv-minikube-config
       - podman machine init
       - podman machine start
+      - minikube config set rootless true --profile devenv
       - minikube start --driver=podman --container-runtime=containerd --profile devenv
       - minikube addons enable ingress --profile devenv
   

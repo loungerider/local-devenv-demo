@@ -30,7 +30,8 @@ spec:
   selector:
     app: simple-webapp
   ports:
-    - protocol: TCP
+    - name: http
+      protocol: TCP
       port: 80
       targetPort: 80
   type: LoadBalancer

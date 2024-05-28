@@ -3,6 +3,8 @@
 [Install devbox](https://www.jetify.com/devbox/docs/installing_devbox/)\
 [Install vfkit if using macOS](https://github.com/NixOS/nixpkgs/issues/305868)
 
+This configuration has only been tested on macOS `Darwin Kernel Version 23.4.0 x86_64`
+
 ```bash
 brew tap cfergeau/crc
 brew install vfkit
@@ -21,4 +23,4 @@ task --list
 task devenv-init
 ```
 
-Using a single node minikube cluster because some examples would have issues when tunneling to the exposed service when executing `minikube service <app_name> --profile devenv`
+Using a single node minikube cluster because some examples would have issues when tunneling to the exposed service when executing `minikube service <app_name> --profile devenv` on macOS
