@@ -6,7 +6,7 @@ tasks:
     cmds:
       - touch ~/.kube/devenv-minikube-config
       - export KUBECONFIG=~/.kube/devenv-minikube-config
-      - podman machine init
+      - podman machine init --cpus=2 --memory=4096  
       - podman machine set --rootful
       - podman machine start
       - minikube start --addons=ingress --driver=podman --container-runtime=containerd --profile devenv

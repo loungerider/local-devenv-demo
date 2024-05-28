@@ -16,7 +16,7 @@ The following command will install the nix package manager, download all the pac
 devbox shell
 ```
 
-This demo assumes that podman and minikube are not installed on your OS. go-task is used to abstract common commands. A custom KUBECONFIG file will be generated and used for this demo. Podman in running in `rootful` mode becaue the minikube ingress doesn't work in `rootless`. Using the containerd runtime instead of cri-o with `rootful` podman as suggested [here](https://minikube.sigs.k8s.io/docs/drivers/podman/) because the cri-o container runtime will error when executing `minikube image build`. 
+This demo assumes that podman and minikube are not installed on your OS. go-task is used to abstract common commands. A custom KUBECONFIG file will be generated and used for this demo. Podman in running in `rootful` mode becaue the minikube ingress doesn't work in `rootless` created [issue](https://github.com/kubernetes/minikube/issues/18978). Using the containerd runtime instead of cri-o with `rootful` podman as suggested [here](https://minikube.sigs.k8s.io/docs/drivers/podman/) because the cri-o container runtime will error when executing `minikube image build`. 
 
 ```bash
 task --list
