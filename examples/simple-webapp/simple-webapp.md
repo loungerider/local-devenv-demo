@@ -18,24 +18,26 @@ minikube image build -t simple-webapp . --profile devenv
 kubectl create -f simple-webapp.yaml
 ```
 
-In a different terminal from the repo directory open the tunnel after executing `devbox shell`. Running the tunnel on port 80 will require sudo access and prompt for the root password.
+In a new terminal session from your local repo directory execute `devbox shell`. Then open a tunnel on port 80 and 443 which requires sudo access and will prompt for the root password.
 
 ```bash
 minikube tunnel --profile devenv
 ```
 
-Opening the tunnel will assign IP `127.0.0.1` as the EXTERNAL-IP to the simple-webapp service
-
 ```
-devenv➜ k get svc
-NAME            TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
-kubernetes      ClusterIP      10.96.0.1        <none>        443/TCP        14m
-simple-webapp   LoadBalancer   10.101.173.249   127.0.0.1     80:31313/TCP   13m
+✅  Tunnel successfully started
+
+📌  NOTE: Please do not close this terminal as this process must stay alive for the tunnel to be accessible ...
+
+❗  The service/ingress my-ingress requires privileged ports to be exposed: [80 443]
+🔑  sudo permission will be asked for it.
+🏃  Starting tunnel for service my-ingress.
+Password:
 ```
 
-Browse the service using the hostname set in the ingress -  http://simple-webapp-127-0-0-1.nip.io
+Browse the service using the hostname set in the ingress -  http://simple-webapp-127-0-0-1.nip.io or https://simple-webapp-127-0-0-1.nip.io
 
-TODO: Investigate trying to get a working local tls ingress with this setup. 
+TODO: Investigate creating a valid local tls ingress.
 
 Build and run the image using podman exposed on port 8080.
 
