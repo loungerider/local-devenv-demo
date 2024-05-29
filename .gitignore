@@ -1,0 +1,2 @@
+examples/istio/*
+!examples/istio/istio.md

@@ -2,8 +2,10 @@
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.10.7/.schema/devbox.schema.json",
   "packages": [
     "bat@0.24.0",
+    "curl@8.7.1",
     "go@1.22.2",
     "go-task@3.37.0",
+    "istioctl@1.22.0",
     "jq@1.7.1",
     "kubectl@1.30.0",
     "kubernetes-helm@3.14.4",
