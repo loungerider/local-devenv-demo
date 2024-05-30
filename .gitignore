@@ -1,2 +1,3 @@
 examples/istio/*
 !examples/istio/istio.md
+!examples/istio/Taskfile.yml

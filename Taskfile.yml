@@ -1,5 +1,13 @@
 version: "3"
 
+includes:
+  istio:
+    taskfile: ./examples/istio
+    dir: ./examples/istio
+  simple-api:
+    taskfile: ./examples/simple-api
+    dir: ./examples/simple-api
+
 tasks:
   devenv-init:
     desc: create podman machine and minikube cluster
@@ -63,32 +71,8 @@ tasks:
       - minikube addons enable metrics-server --profile devenv
       - minikube dashboard --profile devenv
 
-  istio-download:
-    desc: download istio
-    dir: '{{.USER_WORKING_DIR}}'
-    preconditions:
-      - test -f istio.md
-    cmds:
-      - pwd
-      - curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.22.0 sh -
-      - istioctl x precheck
-
-  istio-install-demo:
-    desc: install istio demo
-    dir: '{{.USER_WORKING_DIR}}'
-    preconditions:
-      - test -f manifest.yaml
-    cmds:
-      - pwd
-      - istioctl install --set profile=demo -y
-      - kubectl label namespace default istio-injection=enabled
-      - kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
-      - echo "Wait until all pods are running"
-      - while [[ $(kubectl get pods -n default --field-selector=status.phase!=Running 2>/dev/null | wc -l) -gt 0 ]]; do echo "Waiting for all pods to be running..."; sleep 10; done; echo "All pods are running."
-      - kubectl exec "$(kubectl get pod -l app=ratings -o jsonpath='{.items[0].metadata.name}')" -c ratings -- curl -sS productpage:9080/productpage | grep -o "<title>.*</title>"
-      - kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
-      - istioctl analyze
-
   default:
     desc: check status of dev environment
     deps: [devenv-status]
+
+  

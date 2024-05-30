@@ -18,9 +18,8 @@ task devenv-init-large
 Task setup to follow istio getting started [here](https://istio.io/latest/docs/setup/getting-started/) for version 1.22.0
 
 ```bash
-task istio-download
-cd istio-1.22.0
-task istio-install-demo
+task istio:download
+task istio:install-demo
 ```
 
 After a successful installation open a tunnel in a new terminal as mentioned [here](https://istio.io/latest/docs/setup/getting-started/#determining-the-ingress-ip-and-ports)

@@ -1,0 +1,18 @@
+version: "3"  
+  
+tasks:
+  build:
+    desc: build simple-api
+    preconditions:
+      - test -f Dockerfile
+    cmds:
+      - pwd
+      - minikube image build -t simple-api . --profile devenv
+  deploy:
+    desc: deploy simple-api
+    preconditions:
+      - test -f simple-api.yaml
+    cmds:
+      - pwd
+      - kubectl create -f simple-api.yaml
+  

@@ -3,7 +3,7 @@
 ## Prerequisites
 
 * devbox is installed and `devbox shell` was executed.
-* The minikube devenv cluster should be running locally.
+* The minikube devenv cluster should be running locally using `task devenv-init` which includes the nginx ingress.
 
 ```bash
 task devenv-status

@@ -25,8 +25,8 @@ go run .
 Build and deploy with minikube
 
 ```bash
-minikube image build -t simple-api . --profile devenv
-kubectl create -f simple-api.yaml
+task simple-api:build
+task simple-api:deploy
 minikube service simple-api --profile devenv
 ```
 
