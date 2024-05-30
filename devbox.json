@@ -11,13 +11,14 @@
     "kubernetes-helm@3.14.4",
     "minikube@1.33.1",
     "podman@5.0.3",
+    "qemu@8.2.4",
     "yq@3.4.3"
   ],
   "shell": {
     "init_hook": [
       "alias cat='bat --paging never --theme DarkNeon --style plain'",
       "alias k='kubectl'",
-      "export KUBECONFIG=~/.kube/devenv-minikube-config",
+      "export KUBECONFIG=$(pwd)/devenv-minikube-config",
       "PS1=\"devenv➜ \""
     ],
     "scripts": {}

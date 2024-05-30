@@ -3,12 +3,16 @@
 [Install devbox](https://www.jetify.com/devbox/docs/installing_devbox/)\
 [Install vfkit if using macOS](https://github.com/NixOS/nixpkgs/issues/305868)
 
-This configuration has only been tested on macOS `Darwin Kernel Version 23.4.0 x86_64` and `Darwin Kernel Version 23.2.0 arm64`
-
 ```bash
 brew tap cfergeau/crc
 brew install vfkit
 ```
+
+This configuration has only been tested on:
+* macOS `Darwin Kernel Version 23.4.0 x86_64` and `Darwin Kernel Version 23.2.0 arm64`.
+* Currently testing Ubuntu 24.04 in VirtualBox and running into some issues.
+
+TODO: Test on Windows and Linux running on bare metal.
 
 The following command will install the nix package manager, download all the packages listed in the `devbox.json` and place you in the devbox shell. The first execution will be time consuming because of the nix setup and package downloads.
 

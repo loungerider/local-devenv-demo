@@ -11,9 +11,10 @@ includes:
 tasks:
   devenv-init:
     desc: create podman machine and minikube cluster
+    dir: ./
     cmds:
-      - touch ~/.kube/devenv-minikube-config
-      - export KUBECONFIG=~/.kube/devenv-minikube-config
+      - touch "$(pwd)/devenv-minikube-config"
+      - export "KUBECONFIG=$(pwd)/devenv-minikube-config"
       - podman machine init --cpus=2 --memory=5120  
       - podman machine set --rootful
       - podman machine start
@@ -21,9 +22,10 @@ tasks:
 
   devenv-init-large:
     desc: create podman machine and minikube cluster with extra resources
+    dir: ./
     cmds:
-      - touch ~/.kube/devenv-minikube-config
-      - export KUBECONFIG=~/.kube/devenv-minikube-config
+      - touch "$(pwd)/devenv-minikube-config"
+      - export "KUBECONFIG=$(pwd)/devenv-minikube-config"
       - podman machine init --cpus=4 --memory=18432 
       - podman machine set --rootful
       - podman machine start
@@ -42,11 +44,12 @@ tasks:
   devenv-destroy:
     desc: destroys all minikube clusters and the podman machine
     deps: [devenv-minikube-stop]
+    dir: ./
     cmds:
       - minikube delete --all
       - podman machine stop
       - podman machine rm -f
-      - rm ~/.kube/devenv-minikube-config
+      - rm devenv-minikube-config
 
   devenv-status:
     desc: check status of dev environment
@@ -57,13 +60,14 @@ tasks:
 
   devenv-hung:
     desc: minikube not responding
+    dir: ./
     preconditions:
       - "[[ $(ps aux | grep podman | grep -v grep | wc -l) -gt 0 ]]"
     cmds:
       - ps aux | grep podman | grep -v grep | awk '{print $2}' | xargs kill
       - podman machine rm -f
       - minikube delete --all
-      - rm ~/.kube/devenv-minikube-config
+      - rm devenv-minikube-config
 
   devenv-dashboard:
     desc: start minikube dashboard
