@@ -8,9 +8,9 @@ brew tap cfergeau/crc
 brew install vfkit
 ```
 
-This configuration has only been tested on:
-* macOS `Darwin Kernel Version 23.4.0 x86_64` and `Darwin Kernel Version 23.2.0 arm64`.
-* Currently testing Ubuntu 24.04 in VirtualBox and running into some issues.
+This configuration has only been tested on macOS:
+* `Darwin Kernel Version 23.4.0 x86_64` and `Darwin Kernel Version 23.2.0 arm64`.
+* Running a linux VM in `Virutalbox 7.0.18` or `qemu-system-x86_64` on macOS is not supported. qemu in the VM requires the kvm kernel module [issue](https://github.com/containers/podman/issues/19138).
 
 TODO: Test on Windows and Linux running on bare metal.
 
