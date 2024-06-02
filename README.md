@@ -46,10 +46,16 @@ This demo assumes that podman and minikube are not installed on your OS. go-task
 task --list
 ```
 
-The default init is for macOS
+The default init for macOS
 
 ```bash
 task devenv-init
+```
+
+The default init for chromeOS
+
+```bash
+task devenv-init-chromeOS
 ```
 
 To destroy the cluster on macOS
@@ -58,8 +64,22 @@ To destroy the cluster on macOS
 task devenv-destroy
 ```
 
+To destroy the cluster on chromeOS
+```bash
+task devenv-destroy-chromeOS
+```
+
 If minikube is unresponsive on macOS, this will kill the podman and vfkit processes, force remove the podman machine and cleanup the minikube config.
 
 ```bash
 task devenv-hung
 ```
+
+## TODO
+
+* Test on Windows and Linux running on bare metal.
+* Update Taskfile config to allow for specific tasks inside of projects.
+* Update Taskfile so `podman system migrate` isn't run on every chromeOS init
+* Update documentation to caputure minikube tunnel differences between macOS and chromeOS.
+* Update simple-webapp.yaml ingress hostname depending OS type.
+* Research chromeOS configuration to allow access to minikube from the browser.
