@@ -21,6 +21,16 @@ This configuration has only been tested on macOS:
 
 ```bash
 sudo apt install -y qemu-system libvirt-clients libvirt-daemon-system
+sudo adduser $USER libvirt
+```
+
+Update the /etc/libvirt/qemu.conf with the following.
+
+```
+user = "root"
+group = "root"
+remember_owner = 0
+namespaces = []
 ```
 
 TODO: Test on Windows and Linux running on bare metal.
@@ -42,7 +52,7 @@ task devenv-init
 
 Using a single node minikube cluster because some examples would have issues when tunneling to the exposed service when executing `minikube service <app_name> --profile devenv` on macOS
 
-To destroy the cluster.
+To destroy the cluster on macOS
 
 ```bash
 task devenv-destroy
