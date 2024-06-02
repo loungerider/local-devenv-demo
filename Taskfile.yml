@@ -27,10 +27,21 @@ tasks:
     dir: ./
     platforms: [linux]
     cmds:
+      - sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535
+      #- echo "$USER:100000:165536" > subuid
+      #- echo "$USER:100000:165536" > subgid
+      #- sudo chown root:root subuid subgid
+      #- sudo cp subuid /etc/
+      #- sudo cp subgid /etc/
+      #- sudo rm subuid subgid
+      - sudo mkdir -p /etc/containers
+      - sudo cp policy.json /etc/containers/
+      - export PODMAN_IGNORE_CGROUPSV1_WARNING=true
+      - podman system migrate
       - touch "$(pwd)/devenv-minikube-config"
       - export "KUBECONFIG=$(pwd)/devenv-minikube-config"
       - sudo adduser $USER libvirt
-      - echo -e "user = \"root\"\ngroup = \"root\"\nremember_owner = 0\nnamespaces = []" >> qemu.conf
+      - echo -e "user = \"root\"\ngroup = \"root\"\nremember_owner = 0\nnamespaces = []" > qemu.conf
       - sudo chown root:root qemu.conf
       - sudo chmod 600 qemu.conf
       - sudo cp qemu.conf /etc/libvirt/qemu.conf
