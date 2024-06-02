@@ -31,9 +31,10 @@ tasks:
       - export "KUBECONFIG=$(pwd)/devenv-minikube-config"
       - sudo adduser $USER libvirt
       - echo -e "user = \"root\"\ngroup = \"root\"\nremember_owner = 0\nnamespaces = []" >> qemu.conf
-      - sudo mv ./qemu.conf /etc/libvirt/qemu.conf
-      - sudo chown root:root /etc/libvirt/qemu.conf
-      - sudo chmod 600 /etc/libvirt/qemu.conf
+      - sudo chown root:root qemu.conf
+      - sudo chmod 600 qemu.conf
+      - sudo cp qemu.conf /etc/libvirt/qemu.conf
+      - sudo rm qemu.conf
       - minikube start --cpus=4 --memory=4096 --driver=kvm2 --profile devenv
   
 
