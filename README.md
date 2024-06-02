@@ -19,7 +19,7 @@ On macOS Podman is running in `rootful` mode because the minikube ingress doesn'
 
 ## chromeOS
 
-This configuration was tested with the launch of a new linux development environment container:
+This configuration was tested with the launch of a new linux development environment container with a 30GB disk:
 * `Linux penguin 6.6.25-01713-g2f237acc8e50`
 * [Install libvirt based on these minikube directions](https://richrose.dev/posts/chromeos/productivity/chromeos-minikube/)
 
