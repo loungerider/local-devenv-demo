@@ -20,7 +20,7 @@ This configuration has only been tested on macOS:
 [Install libvirt based on these directions](https://richrose.dev/posts/chromeos/productivity/chromeos-minikube/)
 
 ```bash
-sudo apt install -y qemu-system libvirt-clients libvirt-daemon-system
+sudo apt install -y libvirt-clients libvirt-daemon-system
 ```
 
 TODO: Test on Windows and Linux running on bare metal.
