@@ -79,7 +79,8 @@ task devenv-hung
 
 * Test on Windows and Linux running on bare metal.
 * Update Taskfile config to allow for specific tasks inside of projects.
-* Update Taskfile so `podman system migrate` isn't run on every chromeOS init
+* Update Taskfile so `podman system migrate` isn't run on every chromeOS init.
+* `task devenv-status` should display a better message.
 * Update documentation to caputure minikube tunnel differences between macOS and chromeOS.
 * Update simple-webapp.yaml ingress hostname depending OS type.
 * Research chromeOS configuration to allow access to minikube from the browser.
