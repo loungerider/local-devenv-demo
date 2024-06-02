@@ -29,6 +29,7 @@ tasks:
       - sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 $USER
       - sudo mkdir -p /etc/containers
       - sudo cp policy.json /etc/containers/
+      - sudo cp registries.conf /etc/containers/
       - export PODMAN_IGNORE_CGROUPSV1_WARNING=true
       - podman system migrate
       - touch "$(pwd)/devenv-minikube-config"
