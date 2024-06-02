@@ -1,6 +1,9 @@
 # Create an ephemeral minikube local dev environment with podman
 
 [Install devbox](https://www.jetify.com/devbox/docs/installing_devbox/)\
+
+## macOS
+
 [Install vfkit if using macOS](https://github.com/NixOS/nixpkgs/issues/305868)
 
 ```bash
@@ -12,7 +15,17 @@ This configuration has only been tested on macOS:
 * `Darwin Kernel Version 23.4.0 x86_64` and `Darwin Kernel Version 23.2.0 arm64`.
 * Running a linux VM in `Virutalbox 7.0.18` or `qemu-system-x86_64` on macOS is not supported. qemu in the VM requires the kvm kernel module [issue](https://github.com/containers/podman/issues/19138).
 
+## chromeOS
+
+[Install libvirt based on these directions](https://richrose.dev/posts/chromeos/productivity/chromeos-minikube/)
+
+```bash
+sudo apt install -y qemu-system libvirt-clients libvirt-daemon-system
+```
+
 TODO: Test on Windows and Linux running on bare metal.
+
+## Activate devbox
 
 The following command will install the nix package manager, download all the packages listed in the `devbox.json` and place you in the devbox shell. The first execution will be time consuming because of the nix setup and package downloads.
 
