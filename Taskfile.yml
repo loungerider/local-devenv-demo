@@ -12,6 +12,7 @@ tasks:
   devenv-init:
     desc: create podman machine and minikube cluster
     dir: ./
+    platforms: [darwin]
     cmds:
       - touch "$(pwd)/devenv-minikube-config"
       - export "KUBECONFIG=$(pwd)/devenv-minikube-config"
@@ -19,6 +20,23 @@ tasks:
       - podman machine set --rootful
       - podman machine start
       - minikube start --cpus=2 --memory=4096 --addons=ingress --driver=podman --container-runtime=containerd --profile devenv
+      - minikube start --cpus=4 --memory=4096 --driver=kvm2 --profile devenv
+  
+  devenv-init-chromeOS:
+    desc: create minikube cluster
+    dir: ./
+    platforms: [linux]
+    cmds:
+      - touch "$(pwd)/devenv-minikube-config"
+      - export "KUBECONFIG=$(pwd)/devenv-minikube-config"
+      - sudo adduser $USER libvirt
+      - echo -e "user = "root"\ngroup = "root"\nremember_owner = 0\nnamespaces = []" >> qemu.conf
+      - sudo cp /etc/libvirt/qemu.conf /etc/libvirt/qemu.conf.orig
+      - sudo mv ./qemu.conf /etc/libvirt/qemu.conf
+      - sudo chown root:root /etc/libvirt/qemu.conf
+      - sudo chmod 600 /etc/libvirt/qemu.conf
+      - minikube start --cpus=4 --memory=4096 --driver=kvm2 --profile devenv
+  
 
   devenv-init-large:
     desc: create podman machine and minikube cluster with extra resources
@@ -45,11 +63,21 @@ tasks:
     desc: destroys all minikube clusters and the podman machine
     deps: [devenv-minikube-stop]
     dir: ./
+    platforms: [darwin]
     cmds:
       - minikube delete --all
       - podman machine stop
       - podman machine rm -f
       - rm devenv-minikube-config
+
+  devenv-destroy-chromeOS:
+    desc: destroys all minikube clusters and the podman machine
+    deps: [devenv-minikube-stop]
+    dir: ./
+    platforms: [linux]
+    cmds:
+      - minikube delete --all
+      - rm devenv-minikube-config    
 
   devenv-status:
     desc: check status of dev environment
