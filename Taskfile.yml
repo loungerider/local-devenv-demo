@@ -20,7 +20,6 @@ tasks:
       - podman machine set --rootful
       - podman machine start
       - minikube start --cpus=2 --memory=4096 --addons=ingress --driver=podman --container-runtime=containerd --profile devenv
-      - minikube start --cpus=4 --memory=4096 --driver=kvm2 --profile devenv
   
   devenv-init-chromeOS:
     desc: create minikube cluster
@@ -28,12 +27,6 @@ tasks:
     platforms: [linux]
     cmds:
       - sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 $USER
-      #- echo "$USER:100000:165536" > subuid
-      #- echo "$USER:100000:165536" > subgid
-      #- sudo chown root:root subuid subgid
-      #- sudo cp subuid /etc/
-      #- sudo cp subgid /etc/
-      #- sudo rm subuid subgid
       - sudo mkdir -p /etc/containers
       - sudo cp policy.json /etc/containers/
       - export PODMAN_IGNORE_CGROUPSV1_WARNING=true
@@ -46,7 +39,7 @@ tasks:
       - sudo chmod 600 qemu.conf
       - sudo cp qemu.conf /etc/libvirt/qemu.conf
       - sudo rm qemu.conf
-      - minikube start --cpus=4 --memory=4096 --driver=kvm2 --profile devenv
+      - minikube start --cpus=4 --memory=4096 --addons=ingress --driver=kvm2 --profile devenv
   
 
   devenv-init-large:
