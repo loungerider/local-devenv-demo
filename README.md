@@ -28,7 +28,7 @@ sudo apt install -y libvirt-clients libvirt-daemon-system uidmap
 ```
 
 On chromeOS minikube uses the `kvm2` driver and the initilization of the cluster will replace the `/etc/libvirt/qemu.conf` file.
-Podman setup will update `/etc/subuid` and `/etc/subgid` and create the file `/etc/containers/policy.json`
+Podman setup will update `/etc/subuid` and `/etc/subgid` and create the file `/etc/containers/policy.json` and `/etc/containers/registries.conf`
 
 TODO: Test on Windows and Linux running on bare metal.
 
