@@ -6,7 +6,7 @@
 * The minikube devenv cluster should be running locally.
 
 ```bash
-task devenv-status
+cd ..; task devenv-status
 ```
 
 ## Simple Api Example
