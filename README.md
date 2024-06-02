@@ -21,16 +21,6 @@ This configuration has only been tested on macOS:
 
 ```bash
 sudo apt install -y qemu-system libvirt-clients libvirt-daemon-system
-sudo adduser $USER libvirt
-```
-
-Update the /etc/libvirt/qemu.conf with the following.
-
-```
-user = "root"
-group = "root"
-remember_owner = 0
-namespaces = []
 ```
 
 TODO: Test on Windows and Linux running on bare metal.
