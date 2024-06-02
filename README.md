@@ -1,6 +1,6 @@
 # Create an ephemeral minikube local dev environment with podman
 
-[Install devbox](https://www.jetify.com/devbox/docs/installing_devbox/)\
+[Install devbox](https://www.jetify.com/devbox/docs/installing_devbox/)
 
 ## macOS
 
