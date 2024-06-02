@@ -678,8 +678,8 @@
       }
     },
     "qemu@8.2.4": {
-      "last_modified": "2024-05-23T08:10:22Z",
-      "resolved": "github:NixOS/nixpkgs/3305b2b25e4ae4baee872346eae133cf6f611783#qemu",
+      "last_modified": "2024-05-30T12:09:21Z",
+      "resolved": "github:NixOS/nixpkgs/aa61b27554a5fc282758bf0324781e3464ef2cde#qemu",
       "source": "devbox-search",
       "version": "8.2.4",
       "systems": {
@@ -697,15 +697,15 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/fll2y6hyvh9dnxw8vvydwgjf1n78pvrm-qemu-8.2.4",
+              "path": "/nix/store/hzgir91hmlz6gwdjvlfjgiamjz2nzlwy-qemu-8.2.4",
               "default": true
             },
             {
               "name": "ga",
-              "path": "/nix/store/k4w39x9sgsl4hb0713q8z6qz2agy8mqx-qemu-8.2.4-ga"
+              "path": "/nix/store/qj7zhb4b9zkcbl44762864jvcppcplja-qemu-8.2.4-ga"
             }
           ],
-          "store_path": "/nix/store/fll2y6hyvh9dnxw8vvydwgjf1n78pvrm-qemu-8.2.4"
+          "store_path": "/nix/store/hzgir91hmlz6gwdjvlfjgiamjz2nzlwy-qemu-8.2.4"
         },
         "x86_64-darwin": {
           "outputs": [
@@ -721,19 +721,19 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/ck1jf678yi3x1n4idmr4q1c0bdj2s5x5-qemu-8.2.4",
+              "path": "/nix/store/8iyw8vizw620cwwjic29hbsx4qlrvsck-qemu-8.2.4",
               "default": true
             },
             {
               "name": "debug",
-              "path": "/nix/store/a0n21sa5awbb90ag5n0iy75kilfp8xmj-qemu-8.2.4-debug"
+              "path": "/nix/store/237hzslqvsy9fyvd5h68x2wx4v13s173-qemu-8.2.4-debug"
             },
             {
               "name": "ga",
-              "path": "/nix/store/qvdbwf2jad7bcgf2j42yinyhrpbs5467-qemu-8.2.4-ga"
+              "path": "/nix/store/1nwjqf7ha4k88ygs9sasjgb5pyml7cd0-qemu-8.2.4-ga"
             }
           ],
-          "store_path": "/nix/store/ck1jf678yi3x1n4idmr4q1c0bdj2s5x5-qemu-8.2.4"
+          "store_path": "/nix/store/8iyw8vizw620cwwjic29hbsx4qlrvsck-qemu-8.2.4"
         }
       }
     },

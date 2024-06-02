@@ -19,6 +19,7 @@
       "alias cat='bat --paging never --theme DarkNeon --style plain'",
       "alias k='kubectl'",
       "export KUBECONFIG=$(pwd)/devenv-minikube-config",
+      "export PODMAN_IGNORE_CGROUPSV1_WARNING=true",
       "PS1=\"devenv➜ \""
     ],
     "scripts": {}

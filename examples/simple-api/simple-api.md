@@ -6,7 +6,7 @@
 * The minikube devenv cluster should be running locally.
 
 ```bash
-task devenv-status
+cd ..; task devenv-status
 ```
 
 ## Simple Api Example
@@ -25,8 +25,8 @@ go run .
 Build and deploy with minikube
 
 ```bash
-task simple-api:build
-task simple-api:deploy
+task build
+task deploy
 minikube service simple-api --profile devenv
 ```
 

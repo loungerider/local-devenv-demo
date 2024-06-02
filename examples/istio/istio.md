@@ -3,23 +3,34 @@
 ## Prerequisites
 
 * devbox is installed and `devbox shell` was executed.
-* Destroy an existing cluster if it exists `task devenv-destroy`
+* Destroy an existing cluster if it exists macOS `task devenv-destroy` chromeOS `task devenv-destroy-chromeOS`
 * Initialize a fresh large minikube cluster for this demo.
 
 [Install istio on minikube](https://istio.io/latest/docs/setup/platform-setup/minikube/)
 
 Istio requires at least 4 cpus and 16 gb of memory according to the documentation.
 
+## macOS
+
 ```bash
-task devenv-status
-task devenv-init-large
+cd ..; task devenv-status
+cd ..; task devenv-init-large
 ```
+
+## chromeOS
+
+```bash
+cd ..; task devenv-status
+cd ..; task devenv-init-chromeOS
+```
+
+## Install istio
 
 Task setup to follow istio getting started [here](https://istio.io/latest/docs/setup/getting-started/) for version 1.22.0
 
 ```bash
-task istio:download
-task istio:install-demo
+task download
+task install-demo
 ```
 
 After a successful installation open a tunnel in a new terminal as mentioned [here](https://istio.io/latest/docs/setup/getting-started/#determining-the-ingress-ip-and-ports)
