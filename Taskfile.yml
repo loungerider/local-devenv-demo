@@ -27,7 +27,7 @@ tasks:
     dir: ./
     platforms: [linux]
     cmds:
-      - sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535
+      - sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 $USER
       #- echo "$USER:100000:165536" > subuid
       #- echo "$USER:100000:165536" > subgid
       #- sudo chown root:root subuid subgid
