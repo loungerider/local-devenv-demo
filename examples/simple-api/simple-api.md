@@ -25,8 +25,8 @@ go run .
 Build and deploy with minikube
 
 ```bash
-task simple-api:build
-task simple-api:deploy
+task build
+task deploy
 minikube service simple-api --profile devenv
 ```
 
