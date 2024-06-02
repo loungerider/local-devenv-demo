@@ -30,8 +30,6 @@ sudo apt install -y libvirt-clients libvirt-daemon-system uidmap
 On chromeOS minikube uses the `kvm2` driver and the initilization of the cluster will replace the `/etc/libvirt/qemu.conf` file.
 Podman setup will update `/etc/subuid` and `/etc/subgid` and create the file `/etc/containers/policy.json` and `/etc/containers/registries.conf`
 
-TODO: Test on Windows and Linux running on bare metal.
-
 ## Activate devbox
 
 The following command will install the nix package manager, download all the packages listed in the `devbox.json` and place you in the devbox shell. The first execution will be time consuming because of the nix setup and package downloads.
